@@ -6,6 +6,7 @@ import {
   userSearchText,
 } from "../../Redux/Features/Chat/ChatLeft/ChatLeftSlice";
 import { useDebounce } from "../hooks/useDebounce";
+import { Link } from "react-router-dom";
 const ChatLeftSearch = () => {
   const dispatch = useDispatch();
   const [action, setAction] = useState("all");
@@ -31,7 +32,9 @@ const ChatLeftSearch = () => {
           />
         </div>
         <div className="ml-2 flex-shrink-0">
-          <img className="w-6 cursor-pointer mt-2 " src={Plus} alt="plus" />
+          <Link to={"/add-friend"}>
+            <img className="w-6 cursor-pointer mt-2 " src={Plus} alt="plus" />
+          </Link>
         </div>
       </div>
 

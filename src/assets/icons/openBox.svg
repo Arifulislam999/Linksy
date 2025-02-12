@@ -1,1 +1,49 @@
-<svg height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 179.006 179.006" xml:space="preserve" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:#919092;" d="M135.848,46.327L89.509,0L43.176,46.327l-22.71,13.109v79.711l69.037,39.859l69.037-39.859V59.436 L135.848,46.327z M151.021,60.993L109.94,84.527V49.161h20.58L151.021,60.993z M48.499,49.161h20.58v35.366L27.997,60.999 L48.499,49.161z M86.961,171.625l-61.375-34.697V65.51l61.369,35.503v70.612H86.961z M89.581,96.186L74.186,86.89V44.041H52.693 L89.509,7.226l36.816,36.816H104.82v42.854l-14.273,8.724L89.581,96.186z M153.432,136.617l-61.369,35.008v-70.612l61.369-35.503 V136.617z"></path> </g> </g></svg>
+<!-- <svg height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 179.006 179.006" xml:space="preserve" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:#919092;" d="M135.848,46.327L89.509,0L43.176,46.327l-22.71,13.109v79.711l69.037,39.859l69.037-39.859V59.436 L135.848,46.327z M151.021,60.993L109.94,84.527V49.161h20.58L151.021,60.993z M48.499,49.161h20.58v35.366L27.997,60.999 L48.499,49.161z M86.961,171.625l-61.375-34.697V65.51l61.369,35.503v70.612H86.961z M89.581,96.186L74.186,86.89V44.041H52.693 L89.509,7.226l36.816,36.816H104.82v42.854l-14.273,8.724L89.581,96.186z M153.432,136.617l-61.369,35.008v-70.612l61.369-35.503 V136.617z"></path> </g> </g></svg> -->
+
+
+
+<svg
+        width="200"
+        height="200"
+        viewBox="0 0 200 200"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Comment Bubble */}
+        <path
+          d="M50 70C50 55.67 62.67 45 80 45H120C137.33 45 150 55.67 150 70V100C150 114.33 137.33 125 120 125H90L65 145V125H80C62.67 125 50 114.33 50 100V70Z"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Dots Animation */}
+        <circle cx="80" cy="85" r="5" fill="#888">
+          <animate
+            attributeName="opacity"
+            values="0;1;0"
+            dur="1.5s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="100" cy="85" r="5" fill="#888">
+          <animate
+            attributeName="opacity"
+            values="0;1;0"
+            dur="1.5s"
+            begin="0.3s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="120" cy="85" r="5" fill="#888">
+          <animate
+            attributeName="opacity"
+            values="0;1;0"
+            dur="1.5s"
+            begin="0.6s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </svg>

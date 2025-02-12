@@ -13,7 +13,9 @@ import { useEffect, useState } from "react";
 import Shadaw from "../Loader/Shadaw";
 import NoFollowers from "./NoFollowers";
 import NoActiveUser from "./NoActiveUser";
-import { useGetFavouritesQuery } from "../../Redux/Features/Favourite/favouriteApi.js";
+
+import { useGetFavouritesQuery } from "../../Redux/Features/Favourite/favouriteApi";
+
 import NoFavourite from "./NoFavourite";
 import NotificationToolTip from "../Notifications/NotificationToolTip.jsx";
 
@@ -21,6 +23,7 @@ const ChatLeftHead = () => {
   const { chatActionValue, searchText } = useSelector(
     (state) => state.chatLeft
   );
+  const { data: favouriteUser } = useGetFavouritesQuery();
   const { loginUserBySocket } = useSelector((state) => state.socketLoginUser);
   const { user } = useSelector((state) => state.loginUser);
   const { notification } = useSelector((state) => state.getNotification);
@@ -33,7 +36,7 @@ const ChatLeftHead = () => {
     isSuccess,
     isLoading,
   } = useGetAllFollowerChatListQuery(id);
-  const { data: favouriteUser } = useGetFavouritesQuery();
+
   const [chatUpdateUserList, setChatUpdateUserList] = useState([]);
   const [activeUser, setActiveUser] = useState(false);
   useEffect(() => {
@@ -76,8 +79,8 @@ const ChatLeftHead = () => {
         }
       });
     }
-    // console.log(loginUserBySocket, activeUser);
   }, [loginUserBySocket, chatUpdateUserList, id, chatActionValue, activeUser]);
+
   const handlerNotification = () => {
     Cookies.set("Notification", notification?.length, { expires: 365 });
   };

@@ -8,13 +8,14 @@ import FeedComments from "./FeedComments";
 import CommentBox from "./CommentBox";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import ShareButton from "../Modals/ShareUrl";
 import { timeDifference } from "../utils/timeDirrerence";
 import Like from "./Like";
 import { usePostNotificationMutation } from "../../Redux/Features/Notification/notificationAPI";
 import EditPost from "./EditPost";
 import { useUserFollowerMutation } from "../../Redux/Features/Post/postAPI";
 import Shadaw from "../Loader/Shadaw";
+import { useState } from "react";
 
 const FeedPost = ({ post }) => {
   const { poster, description, createdAt, comments, likes, _id } = post || {};
@@ -25,11 +26,21 @@ const FeedPost = ({ post }) => {
     _id: userId,
     followers,
   } = post?.creatorId || {};
+
+  const [share, setShare] = useState(false);
+  const [url, setUrl] = useState("");
+
   const { user } = useSelector((state) => state.loginUser);
 
   const loginUserId = user._id;
   const [userFollower, { isLoading }] = useUserFollowerMutation();
   const [postNotification] = usePostNotificationMutation();
+
+  const handlerSharre = (id) => {
+    setShare(true);
+    let baseUrl = window.location.origin + `/post/${id}`;
+    setUrl(baseUrl);
+  };
 
   const isExistsUserFollower = followers.some(
     (follower) => follower.followerUserId === loginUserId
@@ -156,10 +167,19 @@ const FeedPost = ({ post }) => {
         {/* <!-- Share Button --> */}
 
         {/* <!-- Like Button --> */}
-        <button className="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm">
+        <button
+          onClick={() => handlerSharre(_id)}
+          className="flex-center gap-2 text-xs font-bold text-[#B8BBBF] hover:text-white lg:text-sm"
+        >
           <img src={Share} alt="Share" />
           <span>Share</span>
         </button>
+
+        {/* Chad Cn Dialog Start */}
+
+        {share && <ShareButton url={url} setShare={setShare} />}
+
+        {/* Chad Cn Dialog  End */}
       </div>
       {/* <!-- post actions  --> */}
 

@@ -18,6 +18,7 @@ import MessageBodyMobile from "./components/Chat/ChatBodyMobile";
 import usePageHeight from "./components/hooks/usePageHeight";
 import FixedHeader from "./components/Home/FixedHeader";
 import SinglePost from "./components/Feed/SinglePost";
+import AddFriend from "./components/AddFriend/AddFriend";
 
 function App() {
   const { windowWidth } = useSelector((state) => state.tokenStatus);
@@ -77,6 +78,15 @@ function App() {
                 </>
               }
               path="/chat"
+            />
+            <Route
+              element={
+                <>
+                  <Header />
+                  <AddFriend />
+                </>
+              }
+              path="/add-friend"
             />
             <Route
               element={
